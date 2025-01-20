@@ -45,3 +45,7 @@ button:active {
     object-fit: cover;
     width: 100%;
 }
+
+.hidden {
+    display: none;
+}
