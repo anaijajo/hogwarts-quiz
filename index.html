@@ -5,17 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hogwarts Sorting App</title>
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="text-white">
-    <!-- Start Container -->
+<body>
+    <!-- Start Intro Section -->
     <div id="intro"
-        class="d-flex justify-content-center align-items-center vh-100 text-center position-relative p-0 m-0 text-white">
+        class="d-flex justify-content-center align-items-center text-center position-relative text-white py-5">
         <div class="inner container">
             <div class="row justify-content-center align-items-center">
                 <!-- Text Container -->
@@ -24,23 +27,8 @@
                         alt="Harry Potter Sorting Quiz" width="500">
                     <p class="fs-4">Ravenclaw? Gryffindor? Hufflepuff? Slytherin? Which house will you be sorted into?
                     </p>
-                    <button class="continue-btn fw-bold text-uppercase py-2 px-4 mt-3">Continue</button>
-                </div>
-                <!-- Profile Creation Form -->
-                <div id="form-container" class="col-md-6 mb-4 d-none">
-                    <h2 class="text-white germania-one-regular display-3">Create a Profile to Get Sorted!</h2>
-                    <form id="profile-form" method="POST" enctype="multipart/form-data">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name:</label>
-                            <input type="text" id="name" name="name" class="form-control" >
-                        </div>
-                        <div class="mb-3">
-                            <label for="profile-picture" class="form-label">Upload Your Picture:</label>
-                            <input type="file" id="profile-picture" name="profile-picture" class="form-control"
-                                accept="image/*">
-                        </div>
-                        <button type="submit">Start Quiz</button>
-                    </form>
+                    <button class="continue-btn fw-bold text-uppercase py-2 px-4 mt-3 btn btn-warning"
+                        onclick="showProfileForm()">Continue</button>
                 </div>
                 <!-- Image Container -->
                 <div class="img-container col-md-6 d-none d-md-block d-flex justify-content-center">
@@ -50,47 +38,97 @@
         </div>
     </div>
 
-
-        <!-- Step 1: User Info -->
-        <!--<div id="user-info" class="step">
-            <h1>Welcome to the Sorting Quiz</h1>
-            <label for="username">Enter your name or username:</label>
-            <input type="text" id="username" placeholder="Your name" required>
-            <label for="profile-picture">Upload a profile picture:</label>
-            <input type="file" id="profile-picture" accept="image/*">
-            <button onclick="startQuiz()">Start Quiz</button>
-        </div>-->
-
-        <!-- Step 2: Quiz Questions -->
-        <!--<div id="quiz" class="step" style="display: none;">
-            <div class="question" id="question-1">
-                <h2>What is your role?</h2>
-                <button onclick="selectAnswer('role', 'Instructional Designer')">Instructional Designer</button>
-                <button onclick="selectAnswer('role', 'Course Developer')">CDA</button>
-                <button onclick="selectAnswer('role', 'Manager')">Manager</button>
+    <!-- Profile Creation Form -->
+    <div id="user-info" class="container hidden py-5">
+        <h2 class="text-center text-white mb-4">Create a Profile to Get Sorted!</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <form id="profile-form">
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-white">Enter your name:</label>
+                        <input type="text" id="username" class="form-control" placeholder="Your name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="profile-picture" class="form-label text-white">Upload a profile picture:</label>
+                        <input type="file" id="profile-picture" class="form-control" accept="image/*">
+                    </div>
+                    <button class="mt-2 w-100" type="button" onclick="startQuiz()">Start Quiz</button>
+                </form>
             </div>
+        </div>
+    </div>
 
-            <div class="question" id="question-2" style="display: none;">
-                <h2>Do you work with PLS or SLS?</h2>
-                <button onclick="selectAnswer('team', 'PLS')">PLS</button>
-                <button onclick="selectAnswer('team', 'SLS')">SLS</button>
+    <!-- Quiz Questions -->
+<div id="quiz" class="container hidden py-5">
+    <!-- Question 1 -->
+    <div class="question" id="question-1">
+        <h2>What is your role?</h2>
+        <form id="question-1-form">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="role1" value="Instructional Designer" required>
+                <label class="form-check-label" for="role1">Instructional Designer</label>
             </div>
-
-            <div class="question" id="question-3" style="display: none;">
-                <h2>Choose your favorite magical creature:</h2>
-                <button onclick="selectAnswer('creature', 'Phoenix')">Phoenix</button>
-                <button onclick="selectAnswer('creature', 'Unicorn')">Unicorn</button>
-                <button onclick="selectAnswer('creature', 'Dragon')">Dragon</button>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="role2" value="CDA">
+                <label class="form-check-label" for="role2">CDA</label>
             </div>
-        </div>-->
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="role3" value="IDM">
+                <label class="form-check-label" for="role3">IDM</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="role" id="role4" value="CDM">
+                <label class="form-check-label" for="role4">CDM</label>
+            </div>
+            <button type="button" class="mt-3" onclick="handleNext('role', 'question-1')">Next</button>
+        </form>
+    </div>
 
-        <!-- Step 3: Result -->
-        <!--<div id="result" class="step" style="display: none;">
-            <h2>Congratulations, <span id="user-name"></span>!</h2>
-            <img id="profile-picture-preview" alt="Your Profile Picture">
-            <p>You have been sorted into <span id="house-name"></span>!</p>
-            <img id="house-crest" alt="House Crest">
-        </div>-->
+    <!-- Question 2 -->
+    <div class="question hidden" id="question-2">
+        <h2>Do you work with PLS or SLS?</h2>
+        <form id="question-2-form">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="team" id="team1" value="PLS" required>
+                <label class="form-check-label" for="team1">PLS</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="team" id="team2" value="SLS">
+                <label class="form-check-label" for="team2">SLS</label>
+            </div>
+            <button type="button" class="mt-3" onclick="handleNext('team', 'question-2')">Next</button>
+        </form>
+    </div>
+
+    <!-- Question 3 -->
+    <div class="question hidden" id="question-3">
+        <h2>Choose your favorite magical creature:</h2>
+        <form id="question-3-form">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="creature" id="creature1" value="Phoenix" required>
+                <label class="form-check-label" for="creature1">Phoenix</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="creature" id="creature2" value="Unicorn">
+                <label class="form-check-label" for="creature2">Unicorn</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="creature" id="creature3" value="Dragon">
+                <label class="form-check-label" for="creature3">Dragon</label>
+            </div>
+            <button type="button" class="mt-3" onclick="submitQuiz()">Submit</button>
+        </form>
+    </div>
+</div>
+
+    <!-- Result Section -->
+    <div id="result" class="container hidden py-5">
+        <h2 class="text-center text-white">Congratulations, <span id="user-name"></span>!</h2>
+        <div class="text-center">
+            <img id="profile-picture-preview" class="rounded-circle" alt="Your Profile Picture">
+            <p class="fs-4 mt-3 text-white">You have been sorted into <span id="house-name"></span>!</p>
+            <img id="house-crest" class="mt-4" alt="House Crest">
+        </div>
     </div>
 
     <script src="script.js"></script>
