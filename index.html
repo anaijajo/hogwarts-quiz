@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hogwarts Sorting App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Germania+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="text-white">
+    <!-- Start Container -->
+    <div id="intro"
+        class="d-flex justify-content-center align-items-center vh-100 text-center position-relative p-0 m-0 text-white">
+        <div class="inner container">
+            <div class="row justify-content-center align-items-center">
+                <!-- Text Container -->
+                <div class="txt-container col-md-6 mb-4">
+                    <img class="logo img-fluid mb-4" src="/assets/harry-potter-sorting-text.png"
+                        alt="Harry Potter Sorting Quiz" width="500">
+                    <p class="fs-4">Ravenclaw? Gryffindor? Hufflepuff? Slytherin? Which house will you be sorted into?
+                    </p>
+                    <button class="continue-btn fw-bold text-uppercase py-2 px-4 mt-3">Continue</button>
+                </div>
+                <!-- Profile Creation Form -->
+                <div id="form-container" class="col-md-6 mb-4 d-none">
+                    <h2 class="text-white germania-one-regular display-3">Create a Profile to Get Sorted!</h2>
+                    <form id="profile-form" method="POST" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input type="text" id="name" name="name" class="form-control" >
+                        </div>
+                        <div class="mb-3">
+                            <label for="profile-picture" class="form-label">Upload Your Picture:</label>
+                            <input type="file" id="profile-picture" name="profile-picture" class="form-control"
+                                accept="image/*">
+                        </div>
+                        <button type="submit">Start Quiz</button>
+                    </form>
+                </div>
+                <!-- Image Container -->
+                <div class="img-container col-md-6 d-none d-md-block d-flex justify-content-center">
+                    <img src="/assets/sorting-hat-scene.webp" class="rounded sorting-image" alt="Sorting Hat Scene">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+        <!-- Step 1: User Info -->
+        <!--<div id="user-info" class="step">
+            <h1>Welcome to the Sorting Quiz</h1>
+            <label for="username">Enter your name or username:</label>
+            <input type="text" id="username" placeholder="Your name" required>
+            <label for="profile-picture">Upload a profile picture:</label>
+            <input type="file" id="profile-picture" accept="image/*">
+            <button onclick="startQuiz()">Start Quiz</button>
+        </div>-->
+
+        <!-- Step 2: Quiz Questions -->
+        <!--<div id="quiz" class="step" style="display: none;">
+            <div class="question" id="question-1">
+                <h2>What is your role?</h2>
+                <button onclick="selectAnswer('role', 'Instructional Designer')">Instructional Designer</button>
+                <button onclick="selectAnswer('role', 'Course Developer')">CDA</button>
+                <button onclick="selectAnswer('role', 'Manager')">Manager</button>
+            </div>
+
+            <div class="question" id="question-2" style="display: none;">
+                <h2>Do you work with PLS or SLS?</h2>
+                <button onclick="selectAnswer('team', 'PLS')">PLS</button>
+                <button onclick="selectAnswer('team', 'SLS')">SLS</button>
+            </div>
+
+            <div class="question" id="question-3" style="display: none;">
+                <h2>Choose your favorite magical creature:</h2>
+                <button onclick="selectAnswer('creature', 'Phoenix')">Phoenix</button>
+                <button onclick="selectAnswer('creature', 'Unicorn')">Unicorn</button>
+                <button onclick="selectAnswer('creature', 'Dragon')">Dragon</button>
+            </div>
+        </div>-->
+
+        <!-- Step 3: Result -->
+        <!--<div id="result" class="step" style="display: none;">
+            <h2>Congratulations, <span id="user-name"></span>!</h2>
+            <img id="profile-picture-preview" alt="Your Profile Picture">
+            <p>You have been sorted into <span id="house-name"></span>!</p>
+            <img id="house-crest" alt="House Crest">
+        </div>-->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

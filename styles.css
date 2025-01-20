@@ -1,0 +1,47 @@
+/* General Styles */
+
+body {
+    font-family: "IBM Plex Sans", sans-serif;
+}
+
+#intro {
+    background-color: #4C1A5E;
+}
+
+h1, h2, h3 {
+    font-family: "Germania One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Button */
+button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #fec012;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 6px #7f6009;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    padding: 0.5em 1.5em;
+}
+
+button:hover {
+    transform: translateY(2px);
+    box-shadow: 0 4px #7f6009;
+}
+
+button:active {
+    transform: translateY(6px);
+    box-shadow: none;
+}
+
+/* Sorting Hat Scene Img */
+.sorting-image {
+    max-width: 500px;
+    height: 60vh;
+    object-fit: cover;
+    width: 100%;
+}
