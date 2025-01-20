@@ -36,3 +36,14 @@ function submitQuiz() {
     console.log('Submitting quiz:', userResponses);
     alert('Quiz submitted! Check the console for your responses.');
 }
+
+function replaceContent() {
+    // Get the txt-container element
+    const txtContainer = document.getElementById('txt-container');
+
+    // Get the user-info-template content
+    const userInfoTemplate = document.getElementById('user-info-template').innerHTML;
+
+    // Replace the content of txt-container
+    txtContainer.innerHTML = userInfoTemplate;
+}

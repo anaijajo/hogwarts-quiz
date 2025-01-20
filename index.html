@@ -17,19 +17,18 @@
 
 <body>
     <!-- Start Intro Section -->
-    <div id="intro"
-        class="d-flex justify-content-center align-items-center text-center position-relative text-white py-5">
+    <div id="intro" class="d-flex justify-content-center align-items-center text-center position-relative text-white py-5">
         <div class="inner container">
             <div class="row justify-content-center align-items-center">
                 <!-- Text Container -->
-                <div class="txt-container col-md-6 mb-4">
+                <div class="txt-container col-md-6 mb-4" id="txt-container">
                     <img class="logo img-fluid mb-4" src="/assets/harry-potter-sorting-text.png"
-                        alt="Harry Potter Sorting Quiz" width="500">
-                    <p class="fs-4">Ravenclaw? Gryffindor? Hufflepuff? Slytherin? Which house will you be sorted into?
-                    </p>
+                        alt="Harry Potter Sorting Quiz" width="450">
+                    <p class="fs-5">Ravenclaw? Gryffindor? Hufflepuff? Slytherin? Which house will you be sorted into?</p>
                     <button class="continue-btn fw-bold text-uppercase py-2 px-4 mt-3 btn btn-warning"
-                        onclick="showProfileForm()">Continue</button>
+                        onclick="replaceContent()">Continue</button>
                 </div>
+    
                 <!-- Image Container -->
                 <div class="img-container col-md-6 d-none d-md-block d-flex justify-content-center">
                     <img src="/assets/sorting-hat-scene.webp" class="rounded sorting-image" alt="Sorting Hat Scene">
@@ -37,25 +36,21 @@
             </div>
         </div>
     </div>
-
-    <!-- Profile Creation Form -->
-    <div id="user-info" class="container py-5">
+    
+    <!-- Profile Creation Form (Hidden Template) -->
+    <div id="user-info-template" class="d-none">
         <h2 class="text-center text-white mb-4">Create a Profile to Get Sorted!</h2>
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <form id="profile-form">
-                    <div class="mb-3">
-                        <label for="username" class="form-label text-white">Enter your name:</label>
-                        <input type="text" id="username" class="form-control" placeholder="Your name" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="profile-picture" class="form-label text-white">Upload a profile picture:</label>
-                        <input type="file" id="profile-picture" class="form-control" accept="image/*">
-                    </div>
-                    <button class="mt-2 w-100" type="button" onclick="startQuiz()">Start Quiz</button>
-                </form>
+        <form id="profile-form">
+            <div class="mb-3">
+                <label for="username" class="form-label text-white">Enter your name:</label>
+                <input type="text" id="username" class="form-control" placeholder="Your name" required>
             </div>
-        </div>
+            <div class="mb-3">
+                <label for="profile-picture" class="form-label text-white">Upload a profile picture:</label>
+                <input type="file" id="profile-picture" class="form-control" accept="image/*">
+            </div>
+            <button class="btn btn-warning mt-2 w-100" type="button" onclick="startQuiz()">Start Quiz</button>
+        </form>
     </div>
 
     <!-- Quiz Questions -->
