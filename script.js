@@ -38,12 +38,15 @@ function submitQuiz() {
 }
 
 function replaceContent() {
-    // Get the txt-container element
     const txtContainer = document.getElementById('txt-container');
-
-    // Get the user-info-template content
     const userInfoTemplate = document.getElementById('user-info-template').innerHTML;
 
-    // Replace the content of txt-container
-    txtContainer.innerHTML = userInfoTemplate;
+    // Fade out the current content
+    txtContainer.style.opacity = 0;
+
+    // After the fade-out completes, replace the content and fade it back in
+    setTimeout(() => {
+        txtContainer.innerHTML = userInfoTemplate;
+        txtContainer.style.opacity = 1;
+    }, 500); // Match the fade-out duration
 }

@@ -14,6 +14,10 @@ h1, h2, h3 {
     font-style: normal;
 }
 
+#txt-container {
+    transition: opacity 0.5s ease;
+}
+
 /* Button */
 button {
     font-size: 1.2rem;
