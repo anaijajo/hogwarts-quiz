@@ -1,11 +1,21 @@
 /* General Styles */
 
-body {
-    font-family: "IBM Plex Sans", sans-serif;
-}
+body, html {
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
 
-#intro {
+body {
     background-color: #4C1A5E;
+    font-family: "IBM Plex Sans", sans-serif;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* For background transition*/
+    transition: background-color 1s ease, background-image 1s ease;
 }
 
 h1, h2, h3 {
@@ -44,7 +54,6 @@ button:active {
 
 /* Sorting Hat Scene Img */
 .sorting-image {
-    max-width: 500px;
     height: 60vh;
     object-fit: cover;
     width: 100%;
@@ -52,4 +61,35 @@ button:active {
 
 .hidden {
     display: none;
+}
+
+/* Animations */
+
+.fade-up {
+    animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0; /* Initially hidden */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
